@@ -1,0 +1,31 @@
+using System;
+using System.Linq;
+
+namespace _03.TripleSum2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int counter = 0;
+            for (int left = 0; left < array.Length; left++)
+            {
+                for (int right = left + 1; right < array.Length; right++)
+                {
+                    int sum = array[left] + array[right];
+                    if (array.Contains(sum))
+                    {
+                        Console.WriteLine("{0} + {1} == {2}", array[left], array[right], sum);
+                        counter++;
+                    }
+                }
+            }
+
+            if (counter == 0)
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+}
