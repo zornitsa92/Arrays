@@ -1,0 +1,80 @@
+using System;
+
+namespace _02.RotateAndSum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Read the input
+            //Sum Array
+            //Rotations
+            //Sum
+            //Print 
+
+            //вариант за обръщане на масив от string kum int - с метода ParseArray - другия вариант е: 
+            //int [] items = Console.ReadLine().Split(' ').Select(s => int.Parse(s)).ToArray();
+
+            int[] arr = ParseArray(Console.ReadLine());
+
+            int rotations = int.Parse(Console.ReadLine());
+
+            int[] sumArray = new int[arr.Length];
+
+            for (int i = 0; i < rotations; i++)
+            {
+                int last = arr[arr.Length - 1];
+
+                for (int j = arr.Length - 1; j > 0; j--)
+                {
+                    arr[j] = arr[j - 1];
+                }
+                arr[0] = last;
+
+                for (int k = 0; k < sumArray.Length; k++)
+                {
+                    sumArray[k] += arr[k];
+                }
+               
+            }
+            Console.WriteLine(String.Join(" ", sumArray));
+
+        }
+               
+
+        static int[] ParseArray(string input)
+        {
+            string[] tokens = input.Split();
+            int[] result = new int[tokens.Length];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = int.Parse(tokens[i]);
+            }
+            return result;
+        }
+
+
+        //string[] numbers = Console.ReadLine()
+        //.Split()
+        //.Select(int.Parse)
+        //.ToArray;
+
+        //int rotations = int.Parse(Console.ReadLine());
+        //int[] sum = new int[numbers.Length];
+
+        //for(int j = 0; j<rotations; j++)
+        //{
+        //	int reminder = numbers[numbers.Legth - 1];
+        //	for(int i = numbers.Legth-1; i > 0; i--)
+        //	{
+        //		numbers[i] = numbers[i - 1];
+        //		sum[i] += numbers[i];
+        //	}
+        //    numbers[0] = reminder;
+        //	sum[0] += numbers[0];
+        //}
+
+        //Console.WriteLine($"{string.Join(" ", sum)}");
+    }
+}
