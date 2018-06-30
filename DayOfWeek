@@ -1,0 +1,33 @@
+
+using System;
+
+namespace DayOfWeek
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] weekDays = new string[7]
+            {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+            };
+
+            int day = int.Parse(Console.ReadLine());
+
+            if (day > 7 || day < 1)
+            {
+                Console.WriteLine("Invalid Day!");
+            }
+            else
+            {
+                Console.WriteLine(weekDays[day-1]);
+            }
+        }
+    }
+}
