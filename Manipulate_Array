@@ -1,0 +1,32 @@
+using System;
+using System.Linq;
+
+namespace _02._Manipulate_Array
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] arr = Console.ReadLine().Split(' ').ToArray();
+            int lines = int.Parse(Console.ReadLine());
+            for (int i = 0; i < lines; i++)
+            {
+                string commands = Console.ReadLine();
+                if (commands == "Distinct")
+                {
+                    arr = arr.Distinct().ToArray();
+                }
+                else if (commands == "Reverse")
+                {
+                    Array.Reverse(arr);
+                }
+                else
+                {
+                    string[] replace = commands.Split(' ').ToArray();
+                    arr[int.Parse(replace[1])] = replace[2];
+                }
+            }
+            Console.WriteLine(string.Join(", ", arr));
+        }
+    }
+}
