@@ -1,0 +1,50 @@
+using System;
+using System.Linq;
+
+namespace _07.MaxSequenceOfIncreasingElements
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = Console.ReadLine()
+                .Split(' ')
+                .Select(s => int.Parse(s))
+                .ToArray();
+
+            int longestLength = 0;
+            int longestSubsequence = 0;
+            int currentLength = 0;
+            int currentSubsequence = 0;
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] - arr[i - 1] >= 1)
+                {
+                    currentSubsequence++;
+                    longestSubsequence = i - currentSubsequence;
+
+                    if (currentSubsequence > currentLength)
+                    {
+                        currentLength = currentSubsequence;
+                        longestLength = longestSubsequence;
+                    }
+                }
+                else
+                {
+                    currentSubsequence = 0;
+                }
+            }
+
+            for (int i = longestLength; i <= longestLength + currentLength; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+
+        }
+
+    }
+
+    
+}
