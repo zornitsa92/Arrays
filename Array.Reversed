@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+namespace Array.Reversed
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1,2,3,4,5  => 5,4,3,2,1 
+            //  обръщане на масив
+            
+            // 1 вариант
+             int[] arr = new int[] { 1, 2, 3, 4, 5 };
+            arr = arr.Reverse().ToArray();
+            Console.WriteLine(String.Join(" ", arr));
+
+            //2 вариант
+            // int[] arr = new int[] { 1, 2, 3, 4, 5 };         
+            //for (int i = 0; i < arr.Length/2; i++)
+            //{
+            // int temp = arr[i];
+            //    arr[i] = arr[arr.Length - 1 - i];
+            //    arr[arr.Length - 1 - i] = temp;
+            //}
+            //Console.WriteLine(String.Join(" ", arr));
+
+            //3 вариант
+            //int[] arr = new int[] { 1, 2, 3, 4, 5 };
+            //int[] reversed = new int[arr.Length];
+
+            //for (int i = 0; i < arr.Length; i++)
+            // {
+            //  reversed[i] = arr[arr.Length - 1 - i];
+            //}
+            //Console.WriteLine(String.Join(" ", reversed));
+        }
+    }
+}
